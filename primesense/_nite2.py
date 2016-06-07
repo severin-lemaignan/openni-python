@@ -452,7 +452,6 @@ _niteUnregisterUserTrackerCallbacks = UnloadedDLL
 _niteReadUserTrackerFrame = UnloadedDLL
 _niteUserTrackerFrameAddRef = UnloadedDLL
 _niteUserTrackerFrameRelease = UnloadedDLL
-_niteDumpUserTrackerCalibrationDataToFile = UnloadedDLL
 _niteShutdownHandTracker = UnloadedDLL
 _niteStartHandTracking = UnloadedDLL
 _niteStopHandTracking = UnloadedDLL
@@ -566,11 +565,6 @@ def load_dll(dllname):
     _niteUserTrackerFrameRelease = dll.niteUserTrackerFrameRelease
     _niteUserTrackerFrameRelease.restype  = NiteStatus
     _niteUserTrackerFrameRelease.argtypes = [NiteUserTrackerHandle, ctypes.POINTER(NiteUserTrackerFrame)]
-
-    global _niteDumpUserTrackerCalibrationDataToFile
-    _niteDumpUserTrackerCalibrationDataToFile = dll.niteDumpUserTrackerCalibrationDataToFile
-    _niteDumpUserTrackerCalibrationDataToFile.restype  = NiteStatus
-    _niteDumpUserTrackerCalibrationDataToFile.argtypes = [NiteUserTrackerHandle, NiteUserId, ctypes.c_char_p]
 
     global _niteShutdownHandTracker
     _niteShutdownHandTracker = dll.niteShutdownHandTracker
@@ -776,11 +770,6 @@ def niteUserTrackerFrameRelease(userTracker, pUserTrackerFrame):
     return _niteUserTrackerFrameRelease(userTracker, pUserTrackerFrame)
 
 @nite_call
-def niteDumpUserTrackerCalibrationDataToFile(userTracker, id, targetFile):
-    '''NiteStatus niteDumpUserTrackerCalibrationDataToFile(NiteUserTrackerHandle userTracker, NiteUserId id, char* targetFile)'''
-    return _niteDumpUserTrackerCalibrationDataToFile(userTracker, id, targetFile)
-
-@nite_call
 def niteShutdownHandTracker(handTracker):
     '''NiteStatus niteShutdownHandTracker(NiteHandTrackerHandle handTracker)'''
     return _niteShutdownHandTracker(handTracker)
@@ -972,7 +961,6 @@ all_funcs = [
     niteReadUserTrackerFrame,
     niteUserTrackerFrameAddRef,
     niteUserTrackerFrameRelease,
-    niteDumpUserTrackerCalibrationDataToFile,
     niteShutdownHandTracker,
     niteStartHandTracking,
     niteStopHandTracking,
