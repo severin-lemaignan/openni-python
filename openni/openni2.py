@@ -6,8 +6,8 @@ import ctypes
 import weakref
 import atexit
 import platform
-from primesense import _openni2 as c_api
-from primesense.utils import (inherit_properties, HandleObject, _py_to_ctype_obj, ClosedHandle, InitializationError,
+from openni import _openni2 as c_api
+from openni.utils import (inherit_properties, HandleObject, _py_to_ctype_obj, ClosedHandle, InitializationError,
     OpenNIError)
 
 

@@ -6,15 +6,15 @@ import weakref
 import atexit
 import ctypes
 import platform
-from primesense import _nite2 as c_api
-from primesense import openni2
-from primesense.utils import inherit_properties, ClosedHandle, HandleObject, InitializationError
+from openni import _nite2 as c_api
+from openni import openni2
+from openni.utils import inherit_properties, ClosedHandle, HandleObject, InitializationError
 
-from primesense._nite2 import NiteJointType as JointType
-from primesense._nite2 import NiteSkeletonState as SkeletonState
-from primesense._nite2 import NiteUserState as UserState
-from primesense._nite2 import NitePoseType as PoseType
-from primesense._nite2 import NiteGestureType as GestureType
+from openni._nite2 import NiteJointType as JointType
+from openni._nite2 import NiteSkeletonState as SkeletonState
+from openni._nite2 import NiteUserState as UserState
+from openni._nite2 import NitePoseType as PoseType
+from openni._nite2 import NiteGestureType as GestureType
 
 arch = int(platform.architecture()[0].lower().replace("bit", ""))
 

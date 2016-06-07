@@ -6,31 +6,31 @@ try:
 except ImportError:
     from distutils.core import setup
 
-setup(name = "primesense",
-    version = "2.2.0.30-5",
+setup(name = "openni",
+    version = "2.2.0-6",
     description = "OpenNI2 and NiTE2 python bindings",
-    author = "PrimeSense Inc",
-    author_email = "primesense.com",
+    author = "PrimeSense Inc, Séverin Lemaignan",
+    author_email = "primesense.com, severin.lemaignan@plymouth.ac.uk",
     license = "MIT",
-    url = "http://www.openni.org/",
-    packages = ["primesense"],
+    url = "http://www.openni.ru/",
+    packages = ["openni"],
     platforms = ["POSIX", "Windows"],
-    provides = ["primesense"],
+    provides = ["openni"],
     keywords = "PrimeSense, OpenNI, OpenNI2, Natural Interaction, NiTE, NiTE2",
     long_description = """\
-Official `PrimeSense <http://www.primesense.com/>`_ Python-bindings for `OpenNI2 <http://www.openni.org/>`_
+Python-bindings for `OpenNI2 <http://www.openni.org/>`_
 and `NiTE2 <http://www.openni.org/files/nite/>`_.
 
-This package provides only the Python bindings; be sure to install OpenNI (and optionally NiTE) first.
+This package provides only the Python bindings; be sure to install OpenNI2 (and optionally NiTE2) first.
 
 Example::
     
-    from primesense import openni2
+    from openni import openni2
     
     openni2.initialize()     # can also accept the path of the OpenNI redistribution
     
     dev = openni2.Device.open_any()
-    print dev.get_sensor_info()
+    print dev.get_device_info()
     
     depth_stream = dev.create_depth_stream()
     depth_stream.start()
@@ -41,7 +41,7 @@ Example::
     openni2.unload()
 
 
-.. note:: Refer to the C API for documentation
+.. note:: Refer to the OpenNI2/NiTE2 C API for complete documentation
 
 """,
     classifiers = [

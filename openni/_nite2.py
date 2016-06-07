@@ -3,7 +3,7 @@
 import sys
 
 import ctypes
-from primesense.utils import CEnum, UnloadedDLL
+from openni.utils import CEnum, UnloadedDLL
 
 TRUE = 1
 FALSE = 0
@@ -679,7 +679,7 @@ def load_dll(dllname):
     _the_dll = dll
 
 import functools
-from primesense.utils import NiteError
+from openni.utils import NiteError
 
 def nite_call(func):
     @functools.wraps(func)
