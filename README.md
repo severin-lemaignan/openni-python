@@ -1,7 +1,8 @@
 OpenNI2/NiTE2 Python Bindings
 =============================
 
-Python bindings for OpenNI2 and NiTE2.
+Python bindings for [OpenNI2](https://github.com/OpenNI/OpenNI2) and
+[NiTE2](http://openni.ru/files/nite/).
 
 Based on [Primesense original
 bindings](https://pypi.python.org/pypi/primesense/2.2.0.30-5), with the bugs
