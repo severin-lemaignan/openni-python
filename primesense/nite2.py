@@ -10,6 +10,11 @@ from primesense import _nite2 as c_api
 from primesense import openni2
 from primesense.utils import inherit_properties, ClosedHandle, HandleObject, InitializationError
 
+from primesense._nite2 import NiteJointType as JointType
+from primesense._nite2 import NiteSkeletonState as SkeletonState
+from primesense._nite2 import NiteUserState as UserState
+from primesense._nite2 import NitePoseType as PoseType
+from primesense._nite2 import NiteGestureType as GestureType
 
 arch = int(platform.architecture()[0].lower().replace("bit", ""))
 
@@ -125,11 +130,11 @@ class PoseData(object):
     def __init__(self, posedata):
         self._posedata = posedata
     def is_held(self):
-        return (self.state & c_api.NitePoseState.NITE_POSE_STATE_IN_POSE) != 0
+        return self.state == c_api.NitePoseState.NITE_POSE_STATE_IN_POSE
     def is_entered(self):
-        return (self.state & c_api.NitePoseState.NITE_POSE_STATE_ENTER) != 0
+        return self.state == c_api.NitePoseState.NITE_POSE_STATE_ENTER
     def is_exited(self):
-        return (self.state & c_api.NitePoseState.NITE_POSE_STATE_EXIT) != 0
+        return self.state == c_api.NitePoseState.NITE_POSE_STATE_EXIT
 
 @inherit_properties(c_api.NiteSkeleton, "_skeleton")
 class Skeleton(object):
@@ -145,11 +150,11 @@ class UserData(object):
     def __init__(self, userdata):
         self._userdata = userdata
     def is_new(self):
-        return (self.state & c_api.NiteUserState.NITE_USER_STATE_NEW) != 0
+        return self.state == c_api.NiteUserState.NITE_USER_STATE_NEW
     def is_visible(self):
-        return (self.state & c_api.NiteUserState.NITE_USER_STATE_VISIBLE) != 0;
+        return self.state == c_api.NiteUserState.NITE_USER_STATE_VISIBLE
     def is_lost(self):
-        return (self.state & c_api.NiteUserState.NITE_USER_STATE_LOST) != 0;
+        return self.state == c_api.NiteUserState.NITE_USER_STATE_LOST
     def get_pose(self, posetype):
         return PoseData(self.poses[posetype])
 
@@ -256,9 +261,9 @@ class GestureData(object):
         self._gesture = gesture
 
     def is_complete(self):
-        return (self.state & c_api.NiteGestureState.NITE_GESTURE_STATE_COMPLETED) != 0
+        return self.state == c_api.NiteGestureState.NITE_GESTURE_STATE_COMPLETED
     def is_in_progress(self):
-        return (self.state & c_api.NiteGestureState.NITE_GESTURE_STATE_IN_PROGRESS) != 0
+        return self.state == c_api.NiteGestureState.NITE_GESTURE_STATE_IN_PROGRESS
 
 
 @inherit_properties(c_api.NiteHandData, "_handdata")
@@ -267,13 +272,13 @@ class HandData(object):
         self._handdata = handdata
     
     def is_new(self):
-        return (self.state & c_api.NiteHandState.NITE_HAND_STATE_NEW) != 0
+        return self.state == c_api.NiteHandState.NITE_HAND_STATE_NEW
     def is_lost(self):
         return self.state == c_api.NiteHandState.NITE_HAND_STATE_LOST
     def is_tracking(self):
-        return (self.state & c_api.NiteHandState.NITE_HAND_STATE_TRACKED) != 0
+        return self.state == c_api.NiteHandState.NITE_HAND_STATE_TRACKED
     def is_touching_fov(self):
-        return (self.state & c_api.NiteHandState.NITE_HAND_STATE_TOUCHING_FOV) != 0
+        return self.state == c_api.NiteHandState.NITE_HAND_STATE_TOUCHING_FOV
 
 @inherit_properties(c_api.NiteHandTrackerFrame, "_frame")
 class HandTrackerFrame(HandleObject):
