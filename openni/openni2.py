@@ -29,7 +29,14 @@ if sys.platform == "win32":
     _dll_name = "OpenNI2.dll"
 elif sys.platform == "darwin":
     _dll_name = "libOpenNI2.dylib"
-else:
+else:  # GNU/Linux, *BSD, etc
+    _default_dll_directories += [
+        "/lib",
+        "/usr/lib",
+        "/usr/local/lib",
+    ]
+    if arch == 64:
+        _default_dll_directories.append("/lib64")
     _dll_name = "libOpenNI2.so"
 
 
