@@ -12,7 +12,7 @@ Example of NiTE2 usage:
 
 ```python
 import sys
-from primesense import openni2, nite2, utils
+from openni import openni2, nite2, utils
 
 openni2.initialize()
 nite2.initialize()
