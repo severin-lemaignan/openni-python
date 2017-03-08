@@ -25,6 +25,7 @@ def _get_calling_conv(*args):
     else:
         return ctypes.CFUNCTYPE(*args)
 
+
 from openni._openni2 import OniStatus
 from openni._openni2 import OniSensorType
 from openni._openni2 import OniPixelFormat
@@ -37,6 +38,7 @@ class _anon_enum_5(CEnum):
     _values_ = {0: 'ONI_TIMEOUT_NONE', -1: 'ONI_TIMEOUT_FOREVER'}
     ONI_TIMEOUT_NONE = 0
     ONI_TIMEOUT_FOREVER = -1
+
 
 ONI_TIMEOUT_NONE = _anon_enum_5.ONI_TIMEOUT_NONE
 ONI_TIMEOUT_FOREVER = _anon_enum_5.ONI_TIMEOUT_FOREVER
@@ -64,6 +66,7 @@ class _OniRecorder(ctypes.Structure):
 
     def __repr__(self):
         return '_OniRecorder()' % ()
+
 
 from openni._openni2 import OniFrame
 from openni._openni2 import OniDeviceCallbacks
@@ -336,6 +339,7 @@ class NiteHandTracker(ctypes.Structure):
 
     def __repr__(self):
         return 'NiteHandTracker()' % ()
+
 
 OniBool = ctypes.c_int
 OniCallbackHandle = ctypes.POINTER(OniCallbackHandleImpl)
@@ -729,6 +733,7 @@ def load_dll(dllname):
 
     _the_dll = dll
 
+
 import functools
 from openni.utils import NiteError
 
@@ -964,6 +969,7 @@ def niteInitializeHandTracker(pHandTracker):
 def niteInitializeHandTrackerByDevice(pDevice, pHandTracker):
     '''NiteStatus niteInitializeHandTrackerByDevice(void* pDevice, NiteHandTrackerHandle* pHandTracker)'''
     return _niteInitializeHandTrackerByDevice(pDevice, pHandTracker)
+
 
 all_types = [
     OniStatus,
