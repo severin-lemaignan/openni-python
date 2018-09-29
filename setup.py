@@ -8,7 +8,7 @@ except ImportError:
     from distutils.core import setup
 
 setup(name = "openni",
-    version = "2.2.0-6",
+    version = "2.2.0-6+hjmr.1",
     description = "OpenNI2 and NiTE2 python bindings",
     author = "PrimeSense Inc, Séverin Lemaignan",
     author_email = "primesense.com, severin.lemaignan@plymouth.ac.uk",
