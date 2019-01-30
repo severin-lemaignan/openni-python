@@ -8,10 +8,10 @@ except ImportError:
     from distutils.core import setup
 
 setup(name = "openni",
-    version = "2.2.0-6+hjmr.1",
+    version = "2.3.0",
     description = "OpenNI2 and NiTE2 python bindings",
-    author = "PrimeSense Inc, Séverin Lemaignan",
-    author_email = "primesense.com, severin.lemaignan@plymouth.ac.uk",
+    author = "PrimeSense Inc, Séverin Lemaignan, Jerome Flesch, Hajime Murao",
+    author_email = "primesense.com, severin.lemaignan@brl.ac.uk",
     license = "MIT",
     url = "https://github.com/severin-lemaignan/openni-python",
     packages = ["openni"],

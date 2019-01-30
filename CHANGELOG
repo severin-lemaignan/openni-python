@@ -1,0 +1,7 @@
+v.2.3.0
+-------
+
+- fix for Nite2.2 support (Hajime Murao)
+- code formatting (Hajime Murao)
+- fix a bug in UserTracker when device specfied (Hajime Murao)
+- add standard lib path on Linux to help with finding nite (Jerome Flesch)
