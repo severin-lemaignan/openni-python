@@ -186,4 +186,4 @@ if __name__ == '__main__':
     capture_skeleton()
 ```
 
-![Captured screen image for above example.]((https://raw.githubusercontent.com/hjmr/openni-python/images/nite2-skeleton-image01.png)
+![Captured screen image for above example.](https://raw.githubusercontent.com/hjmr/openni-python/images/nite2-skeleton-image01.png)
