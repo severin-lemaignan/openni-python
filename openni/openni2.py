@@ -379,6 +379,12 @@ class VideoFrame(HandleObject):
     def get_buffer_as_triplet(self):
         return self.get_buffer_as(ctypes.c_uint8 * 3)
 
+    def get_frame_index(self):
+        return self.frameIndex
+
+    def get_time_stamp(self):
+        return self.timestamp
+
 
 class CameraSettings(object):
     __slots__ = ["stream"]
